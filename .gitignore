@@ -1,1 +1,13 @@
+
+# Environment variables and secrets
 .env
+.env.*
+
+# Allow example configuration
+!.env.example
+
+# Node.js dependencies
+node_modules/
+
+# macOS files
+.DS_Store
