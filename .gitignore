@@ -11,3 +11,5 @@ node_modules/
 
 # macOS files
 .DS_Store
+
+project-notes.md
