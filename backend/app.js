@@ -4,6 +4,7 @@ import pool from './config/db.js';
 import ApiResponse from './utils/ApiResponse.js';
 import ApiError from './utils/ApiError.js';
 import errorMiddleware from './middleware/errorMiddleware.js';
+import ambulanceRoutes from './routes/ambulanceRoutes.js';
 
 const app = express();
 
@@ -28,4 +29,5 @@ app.get('/api/health', async (req, res, next) => {
 
 app.use(errorMiddleware);
 
+app.use('/api/ambulances', ambulanceRoutes);
 export default app;
