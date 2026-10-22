@@ -6,7 +6,7 @@ import ApiError from './utils/ApiError.js';
 import errorMiddleware from './middleware/errorMiddleware.js';
 import ambulanceRoutes from './routes/ambulanceRoutes.js';
 import hospitalRoutes from './routes/hospitalRoutes.js';
-
+import emergencyRoutes from './routes/emergencyRoutes.js';
 const app = express();
 
 app.use(express.json());
@@ -30,6 +30,7 @@ app.get('/api/health', async (req, res, next) => {
 
 app.use('/api/ambulances', ambulanceRoutes);
 app.use('/api/hospitals', hospitalRoutes);
+app.use('/api/emergencies', emergencyRoutes);
 
 app.use(errorMiddleware);
 
