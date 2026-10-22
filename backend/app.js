@@ -5,6 +5,7 @@ import ApiResponse from './utils/ApiResponse.js';
 import ApiError from './utils/ApiError.js';
 import errorMiddleware from './middleware/errorMiddleware.js';
 import ambulanceRoutes from './routes/ambulanceRoutes.js';
+import hospitalRoutes from './routes/hospitalRoutes.js';
 
 const app = express();
 
@@ -27,7 +28,9 @@ app.get('/api/health', async (req, res, next) => {
 });
 
 
+app.use('/api/ambulances', ambulanceRoutes);
+app.use('/api/hospitals', hospitalRoutes);
+
 app.use(errorMiddleware);
 
-app.use('/api/ambulances', ambulanceRoutes);
 export default app;
