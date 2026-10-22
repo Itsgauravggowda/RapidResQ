@@ -1,10 +1,19 @@
-class ApiResponse {
-    constructor(statusCode, message, data = null) {
+
+class ApiError extends Error {
+    constructor(statusCode, message, errors = [], stack = '') {
+        super(message);
+
         this.statusCode = statusCode;
-        this.success = statusCode >= 200 && statusCode < 300;
-        this.message = message;
-        this.data = data;
+        this.success = false;
+        this.errors = errors;
+        this.name = 'ApiError';
+
+        if (stack) {
+            this.stack = stack;
+        } else {
+            Error.captureStackTrace(this, this.constructor);
+        }
     }
 }
 
-export default ApiResponse;
+export default ApiError;
